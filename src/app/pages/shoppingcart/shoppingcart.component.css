@@ -1,0 +1,87 @@
+h3{
+    font-weight: 600;
+}
+
+h4{
+    color: white;
+    display: inline-block;
+}
+
+h6{
+    font-weight: 600;
+}
+
+.LinkActive{
+    color: gold;
+  
+}
+
+i{
+    color: white;
+}
+
+button{
+    background-color: #e70404;
+    padding: 0.2rem 0.45rem;
+    border: none;
+    border-radius: 5px;
+}
+
+.price {
+    color: rgb(0, 153, 0);
+}
+
+.check{
+    text-decoration: none;
+    transition: all 200ms linear;
+    color: white;
+    background-color: black;
+}
+
+.check:hover{
+    color: rgb(201, 171, 0);
+    transform: scale(1.04);
+}
+img{
+    width: 5rem;
+    height: 5rem;
+}
+
+.cart{
+    border: solid 0.1rem gray;
+    background-color: gainsboro;
+}
+
+.btn {
+    background-color: black;
+    color: rgb(250, 205, 3);
+    border: none;
+    border-radius: 1.5rem;
+    transition: all 200ms linear;
+    font-weight: 500;
+    padding: 0.5rem 2rem;
+  }
+
+  .btn:hover {
+    color: rgb(235, 170, 6);
+    background-color: rgb(75, 75, 75);
+    transform: scale(1.06);
+  }
+  
+
+
+
+@media (max-width:1000px) {
+    i{
+        display: none;
+    }
+    a:not(:first-child){
+        display: none;
+    }
+
+
+    .btn{
+        padding: 0.5rem 1.5rem;
+    }
+}
+

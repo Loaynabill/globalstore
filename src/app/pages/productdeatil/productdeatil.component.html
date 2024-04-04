@@ -1,0 +1,79 @@
+<section class="container-fluid">
+    <div class="row justify-content-between p-0 m-0">
+        <div class="col-12 col-md-5 p-0 m-0">
+            <ngb-carousel class="carsoul">
+                <ng-container *ngFor="let img of images">
+                    <ng-template ngbSlide *ngIf="img!=null">
+                        <div class="picsum-img-wrapper img1">
+                            <img src="../../../assets/{{img}}" alt="Random first slide" />
+                        </div>
+                    </ng-template>
+                </ng-container>
+
+            </ngb-carousel>
+        </div>
+        <div class="col-12 col-md-7 py-4 px-md-4 pt-md-0 px-0">
+            <div class="px-1 px-md-0">
+                <h2>{{product.title}}</h2>
+                <p class="mt-2">{{product.price | currency: 'LE '}}</p>
+            </div>
+            <form #formsize="ngForm" class="row gx-4 gy-2">
+                <div class="col-12 col-lg-6">
+                    <select required name="thesize" #size="ngModel" ngModel
+                        class="form-select form-select-lg mb-3 w-100 " aria-label=".form-select-lg example"
+                        *ngIf="product.categoryid!=4 && product.categoryid!=5  ; else elsesize"
+                        (change)="sizevalue(size.value)">
+                        <!-- <option >choose your size</option> -->
+                        <option value="s">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <div *ngIf="size.invalid && size.touched">
+                            <p>enter</p>
+                        </div>
+                    </select>
+
+
+                    <ng-template #elsesize>
+                        <select required class="form-select form-select-lg mb-3 w-100 "
+                            aria-label=".form-select-lg example" (change)="sizevalue(size1.value)" #size1="ngModel"
+                            ngModel name="sizepants">
+                            <!-- <option selected>choose your size</option> -->
+                            <option value="30">30</option>
+                            <option value="32">32</option>
+                            <option value="34">34</option>
+                            <option value="36">36</option>
+                            <option value="38">38</option>
+                        </select>
+                        <div *ngIf="size1.invalid && size1.touched">
+                            <div *ngIf="size1.invalid && size1.touched">
+                                <p class="red">enter your size</p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <input type="number" #quantity="ngModel" ngModel required placeholder="enter the quantity"
+                        name="number" class="form-select form-select-lg mb-2  w-100" min="1" max="{{product.amount}}">
+
+                    <div *ngIf="quantity.invalid && quantity.touched">
+                        <p class="red  py-0 my-0 " *ngIf="quantity.errors?.['required']">please enter the quantity</p>
+                        <p class="red  py-0 my-0" *ngIf="quantity.errors?.['max']">the quantity is not valid</p>
+                        <p class="red  py-0 my-0" *ngIf="quantity.errors?.['min']">you cant enter a nigative number or
+                            zero</p>
+                    </div>
+                    <p class="text-black-50 py-4 my-0 py-md-2">we have {{this.product.amount}} only in stock</p>
+                </div>
+                <div class="col-6 mt-5 mt-md-0">
+                    <button class="btn py-2" (click)="goback()">Back</button>
+                </div>
+                <div class="col-6 text-end mt-5 mt-md-0">
+                    <input class="btn  py-2" [disabled]="formsize.invalid" type="submit" value="add to cart"
+                        (click)="add(product,quantity.value,this.valuesize)">
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+</section>

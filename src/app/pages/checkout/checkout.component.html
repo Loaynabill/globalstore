@@ -1,0 +1,156 @@
+<section class="pb-5">
+
+    <form method="get" [formGroup]="order" class="row p-0 m-0 justify-content-center"
+        (ngSubmit)="sendform(order.value)">
+        <div class="col-12 col-md-6 row m-0 p-0 px-3">
+            <div class=" col-md-6 ">
+                <label for="firstname" class="form-label">first name <span>*</span> </label>
+                <input type="text"
+                    [ngClass]="{'is-valid':firstname?.valid &&firstname?.touched,'is-invalid':firstname?.invalid&&firstname?.touched}"
+                    class="form-control" id="firstname" formControlName="firstname" placeholder="enter your fisrt name">
+                <div class="mt-2" *ngIf="firstname?.touched && firstname?.invalid">
+                    <p class="red" *ngIf="firstname?.errors?.['required']">first name is required</p>
+                    <p class="red" *ngIf="firstname?.errors?.['pattern']">enter valid name</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-3 mt-md-0">
+                <label for="lastname" class="form-label">last name <span>*</span></label>
+                <input type="text" class="form-control" id="lastname" placeholder="enter your last name"
+                    formControlName="lastname"
+                    [ngClass]="{'is-valid':lastname?.valid &&lastname?.touched,'is-invalid':lastname?.invalid&&lastname?.touched}">
+                <div class="mt-2" *ngIf="lastname?.touched && lastname?.invalid">
+                    <p class="red" *ngIf="lastname?.errors?.['required']">last name is required</p>
+                    <p class="red" *ngIf="lastname?.errors?.['pattern']">enter valid name</p>
+                </div>
+            </div>
+            <!-- <div formGroupName="country"> -->
+            <div class="mt-3">
+                <label for="Region" class="form-label">Country/Region <span>*</span></label>
+                <select
+                    [ngClass]="{'is-valid':selectcounty?.valid&&selectcounty?.touched,'is-invalid':selectcounty?.invalid&&selectcounty?.touched}"
+                    class="form-select" aria-label="Default select example" formControlName="selectcounty">
+
+                    <option class="form-control" *ngFor="let country of countriesList" [value]="country.code">{{
+                        country.name }}</option>
+                </select>
+                <div class="mt-2" *ngIf="selectcounty?.touched &&selectcounty?.invalid ">
+                    <p class="red" *ngIf="selectcounty?.errors?.['required']">Country is required</p>
+                </div>
+            </div>
+            <!-- </div> -->
+            <div class="mt-3 ">
+                <label for="city" class="form-label">Town/City <span>*</span></label>
+                <input type="text" class="form-control" id="city" formControlName="city"
+                    [ngClass]="{'is-valid':city?.valid &&city?.touched,'is-invalid':city?.invalid&&city?.touched}">
+                <div class="mt-2" *ngIf="city?.touched && city?.invalid">
+                    <p class="red" *ngIf="city?.errors?.['required']">city is required</p>
+                </div>
+            </div>
+            <!-- <div formGroupName="adress"> -->
+            <div class="mt-3 ">
+                <label for="street" class="form-label">street name <span>*</span></label>
+                <input type="text" class="form-control" id="street" formControlName="streetname"
+                    [ngClass]="{'is-valid':streetname?.valid &&streetname?.touched,'is-invalid':streetname?.invalid&&streetname?.touched}">
+                <div class="mt-2" *ngIf="streetname?.touched && streetname?.invalid">
+                    <p class="red" *ngIf="streetname?.errors?.['required']">street name is required</p>
+                </div>
+            </div>
+
+            <div class="mt-3 ">
+                <label for="housenum" class="form-label">house number <span>*</span></label>
+                <input type="text" class="form-control" id="housenum" formControlName="housenum"
+                    [ngClass]="{'is-valid':housenum?.valid &&housenum?.touched,'is-invalid':housenum?.invalid&&housenum?.touched}">
+                <div class="mt-2" *ngIf="housenum?.touched && housenum?.invalid">
+                    <p class="red" *ngIf="housenum?.errors?.['required']">house nummber is required</p>
+                </div>
+            </div>
+            <div class="mt-3 ">
+                <label for="unit" class="form-label">unit <span>*</span></label>
+                <input type="text" class="form-control" id="unit" formControlName="unit"
+                    [ngClass]="{'is-valid':unit?.valid &&unit?.touched,'is-invalid':unit?.invalid&&unit?.touched}">
+                <div class="mt-2" *ngIf="unit?.touched && unit?.invalid">
+                    <p class="red" *ngIf="unit?.errors?.['required']">unit is required</p>
+                </div>
+            </div>
+            <!-- </div> -->
+            <div class="mt-3 ">
+                <label for="zip" class="form-label">postcode / ZIP <span>*</span></label>
+                <input type="text" class="form-control" id="zip" formControlName="postcode"
+                    [ngClass]="{'is-valid':postcode?.valid &&postcode?.touched,'is-invalid':postcode?.invalid&&postcode?.touched}">
+                <div class="mt-2" *ngIf="postcode?.touched && postcode?.invalid">
+                    <p class="red" *ngIf="postcode?.errors?.['required']">postcode is required</p>
+                    <p class="red" *ngIf="postcode?.errors?.['pattern']">enter a valid postcode</p>
+                </div>
+            </div>
+            <div class="mt-3 ">
+                <label for="phone" class="form-label">phone <span>*</span></label>
+                <input type="text" class="form-control" id="phone" formControlName="phone"
+                    [ngClass]="{'is-valid':phonee?.valid &&phonee?.touched,'is-invalid':phonee?.invalid&&phonee?.touched}">
+                <div class="mt-2" *ngIf="phonee?.touched && phonee?.invalid">
+                    <p class="red" *ngIf="phonee?.errors?.['required']">phone is required</p>
+                    <p class="red" *ngIf="phonee?.errors?.['pattern']">enter a valid phone</p>
+                </div>
+            </div>
+            <div class="mt-3">
+                <label for="email" class="form-label">email <span>*</span></label>
+                <input type="email" class="form-control" id="email" formControlName="email"
+                    [ngClass]="{'is-valid':email?.valid &&email?.touched,'is-invalid':email?.invalid&&email?.touched}">
+                <div class="mt-2" *ngIf="email?.touched && email?.invalid">
+                    <p class="red" *ngIf="email?.errors?.['required']">email is required</p>
+                    <p class="red" *ngIf="email?.errors?.['pattern']">enter a valid email</p>
+                </div>
+            </div>
+            <div class="mt-3">
+                <h3 class="py-3">ADDITIONAL INFORMATION</h3>
+                <label for="textt" class="form-label mb-3">Order notes (optional) </label>
+                <textarea formControlName="textarea" placeholder="notes about your order," class="form-control"
+                    aria-label="With textarea"></textarea>
+            </div>
+
+        </div>
+        <div class="col-12 col-md-6 row  myorder ">
+            <div>
+                <h2 class="text-center pb-4">your order</h2>
+                <table class="table wd-table-wrapper p-4">
+                    <thead class="bg-black">
+                        <tr class="bg-black">
+                            <th scope="col">
+                                <h5>PRODUCT</h5>
+                            </th>
+                            <th scope="col" class="text-end">
+                                <h5>SUBTOTAL</h5>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of getcart()">
+                            <td>
+                                <p>{{item.title}} {{item.size}}</p>
+                                <p>size: {{item.size}}</p>
+                                <p>the quantity is {{item.quantityofuser}} piece </p>
+                            </td>
+                            <td class="text-end align-self-center">
+                                <p class="p-0 py-5 price">{{item.totalprice | currency: 'LE '}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h4 class="text-black p-0 pt-2">total</h4>
+                            </td>
+                            <td class="text-end ">
+                                <p class="p-0 pt-2 price">{{gettotalprice() | currency: 'LE '}}</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button [disabled]="(gettotalprice()===0) || (order.invalid)" class="btn submit py-1" type="submit">
+                submit
+            </button>
+
+
+        </div>
+    </form>
+
+
+</section>

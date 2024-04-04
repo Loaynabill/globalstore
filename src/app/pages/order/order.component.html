@@ -1,0 +1,26 @@
+<section class="container-fluid">
+    <div class="row gx-3 gy-5 p-5">
+        <div class="text-center">
+            <h1>MY ORDER</h1>
+        </div>
+        <ng-container *ngFor="let order of orderlist">
+            <div class="col-12 order">
+                <div class="row ">
+                    <div class="col-12 col-md-3 p-0 m-0">
+                        <div>
+                            <img class="img-fluid" src="../../../assets/{{order.posterimg}}">
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-9 ps-3 px-md-5 py-4 ">
+                        <h3>{{order.title}}</h3>
+                        <p class="mt-2">size: {{order.size}}</p>
+                        <p class="mt-2">amount: {{order.quantityofuser}}</p>
+                        <p class=" mt-2">product price: <span class="price">{{order.price | currency: "LE "}}</span></p>
+                        <p class=" mt-2">subtotal :<span class="price">{{order.totalprice | currency: "LE "}}</span></p>
+                        <p>The order has been sent successfully <i class="fa-solid fa-circle-check ms-1"></i></p>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</section>

@@ -1,0 +1,71 @@
+<section class="container-fluid">
+    <div class="row imgback">
+        <div class="overlay"></div>
+        <div class="col-12 py-3 text-center zindex pt-5">
+            <h1>contact us</h1>
+            <h4>our phone : 01111158142</h4>
+            <h4>our gmail : loay.nabilpo&#64;gmail.com</h4>
+        </div>
+        <div class="col-11 col-md-6 mx-auto form mt-2 pb-5">
+            <form #formessage="ngForm" (ngSubmit)="sendmsg(formessage.value)">
+                <div class="mb-4">
+                    <label for="username" class="form-label">Your name</label>
+                    <input [ngClass]="{'is-valid': username.valid,'is-invalid': username.invalid&& username.touched}"
+                        #username="ngModel" type="text" ngModel required class="form-control" pattern="[a-zA-Z\s]+$"
+                        id="username" placeholder="enter your name" name="name" />
+                    <div *ngIf="username.touched && username.invalid">
+                        <p class="mt-2" *ngIf="username.errors?.['required']">
+                            please enter your name
+                        </p>
+                        <p class="mt-2" *ngIf="username.errors?.['pattern']">
+                            enter vaild name
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="email" class="form-label">Your email</label>
+                    <input [ngClass]="{'is-valid': email.valid,'is-invalid': email.invalid&& email.touched}"
+                        #email="ngModel" type="email" ngModel required class="form-control" id=" email"
+                        placeholder="name@example.com" name="useremail"
+                        pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" />
+                    <div *ngIf="email.touched && email.invalid">
+                        <p class="mt-2" *ngIf="email.errors?.['pattern']">
+                            enter a valid email
+                        </p>
+                        <p class="mt-2" *ngIf="email.errors?.['required']">
+                            the email is required
+                        </p>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label for="mse" class="form-label">Your message</label>
+                    <textarea #textarea="ngModel" id="mse" ngModel required placeholder="enter your message"
+                        name="messageuser" class="form-control" aria-label="With textarea"></textarea>
+                    <div *ngIf="textarea.touched && textarea.invalid">
+                        <p class="mt-2" *ngIf="textarea.errors?.['required']">
+                            the message is required
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center text-md-start">
+                    <button [disabled]="formessage.invalid" class="btn py-1" type="submit">
+                        submit
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div class="row justify-content-between text-center py-4 col-8 mx-auto logos">
+            <div class="col"><a href="https://www.facebook.com/loay.nabil.984?mibexid=PtKJ9" target="_blank"><i
+                        class="fa-brands fa-facebook"></i></a></div>
+            <div class="col"><a
+                    href="https://www.instagram.com/loay__nabill?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank"><i class="fa-brands fa-instagram"></i></a></div>
+            <div class="col"><a href="https://www.linkedin.com/in/loay-nabil-31a731283" target="_blank"><i
+                        class="fa-brands fa-linkedin"></i></a></div>
+            <div class="col"><a href="https://github.com/Loaynabill" target="_blank"><i
+                        class="fa-brands fa-github"></i></a></div>
+        </div>
+
+    </div>
+</section>

@@ -1,0 +1,36 @@
+<section class="container-fluid pb-5 px-3">
+    <div class="row  g-4 gy-5">
+        <div class="text-center">
+            <h3 class="mb-4"><a routerLinkActive=" active" routerLink="/Home">HOME</a>/{{catname}}</h3>
+            <input class="search" placeholder=" search..." #sea="ngModel" ngModel type="search" name="search"
+                (change)="search(sea.value)">
+            <select #valuesort (change)="sortt(valuesort.value)" aria-label=".form-select-lg example"
+                class="form-select form-select-lg  mx-auto mt-4">
+                <option selected value="0">default sort</option>
+                <option value="1">by high price</option>
+                <option value="2">by low price</option>
+            </select>
+        </div>
+
+        <ng-container *ngFor="let prd of productlist">
+            <div class="col-6 col-md-4 col-lg-3" *ngIf="sea.untouched||sea.dirty||sea.pristine"
+                [routerLink]="['/Product',prd.id]">
+                <div class="card mx-auto">
+                    <div class="divimg">
+                        <div *ngIf="prd.amount==0" class="soldout"></div>
+                        <img src="../../../assets/{{prd.posterimg}}" class="card-img-top" alt="...">
+                    </div>
+
+                    <div class="card-body">
+                        <span class="text-black-50">{{catname}}</span>
+                        <h5 class="card-title mt-2">{{prd.title}}</h5>
+                        <p class="card-text">{{ prd.price | currency : 'LE '}}</p>
+
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+
+
+    </div>
+</section>

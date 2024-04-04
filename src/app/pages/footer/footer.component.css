@@ -1,0 +1,52 @@
+footer{
+    background-image: linear-gradient(to right,black,rgb(48, 48, 48));
+}
+
+li a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+
+hr {
+    color: rgb(251, 255, 0);
+    /* color:  rgb(218, 188, 23); */
+
+}
+li,
+i {
+    transition: all 150ms linear;
+}
+
+li,
+a {
+    transition: all 150ms linear;
+}
+
+li:not(:last-child){
+    margin-right: 3rem;
+}
+
+li:hover{
+    color: white !important;
+    transform: scale(1.2);
+}
+
+a:hover{
+    color: white !important;
+   
+}
+
+i {
+   color: rgb(82, 82, 82);
+   font-size: 2.25rem;
+   display: inline-block;
+}
+
+i:hover{
+    color: rgb(218, 188, 23) ;
+    transform: scale(1.2);
+}

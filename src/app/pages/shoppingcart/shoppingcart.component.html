@@ -1,0 +1,84 @@
+<section class="container-fluid">
+    <div class="row py-5 bg-black justify-content-center align-items-center text-center">
+
+        <div class="col-12 divfi"><a [routerLink]="['/Cart']">
+                <h4 class="LinkActive me-3">SHOPPING CART </h4>
+                <h4><i class="fa-solid fa-arrow-right"></i> </h4>
+            </a> <button class="mx-5 check" [disabled]="totalprice==0" [routerLink]="['/Checkout']">
+                <h4 class="check me-3">CHECKOUT </h4>
+                <h4><i class="fa-solid fa-arrow-right"></i></h4>
+            </button>
+            <a>
+                <h4>ORDER COMPLETE</h4>
+            </a>
+
+        </div>
+    </div>
+
+    <div class="row justify-content-between py-5 px-3 p-md-5">
+
+        <div class="col-12 px-3 ">
+            <div class="row">
+                <div class="col text-start">
+                    <h5>PRODUCT</h5>
+                </div>
+                <div class="col text-center">
+                    <h5>PRICE</h5>
+                </div>
+                <div class="col text-center">
+                    <h5>size</h5>
+                </div>
+                <div class="col text-center">
+                    <h5>QUANTITY</h5>
+                </div>
+                <div class="col text-end">
+                    <h5>SUBTOTAL</h5>
+                </div>
+                <div class="col text-end">
+                    <p></p>
+                </div>
+                <hr class="m-0 p-0">
+            </div>
+            <div class="row  align-items-center   py-2" *ngFor="let prd of getproducts()">
+                <div class="col text-start">
+                    <img src="../../../assets/{{prd.posterimg}}">
+                </div>
+                <div class="col text-center price">
+                    <h6>{{prd.price | currency: 'LE '}}</h6>
+                </div>
+                <div class="col text-center">
+                    <h6>{{prd.size}}</h6>
+                </div>
+                <div class="col text-center">
+                    <h6>{{prd.quantityofuser}}</h6>
+                </div>
+                <div class="col text-end">
+                    <h6 class="pe-3 price">{{prd.totalprice | currency: 'LE '}}</h6>
+                </div>
+                <div class="col text-end">
+                    <button (click)="removeprd(prd)"><i class="fa-solid fa-x"></i></button>
+                </div>
+                <hr class="mt-2">
+            </div>
+            <div class="row justify-content-between align-items-center py-2">
+                <div class="col-6">
+                    <h3>total price</h3>
+                </div>
+                <div class="col-5 text-center">
+                    <h3 class="me-4 price">{{total() | currency: 'LE '}}</h3>
+                </div>
+                <hr class="m-0 py-2">
+            </div>
+            <div class="text-center row justify-content-center py-4">
+                <div class="col-12 mb-4 mb-md-0 col-md-4"><a class="btn" (click)="clearcart()">clear the cart</a></div>
+                <div class="col-12 col-md-4">
+                    <button class="btn" [disabled]="total()==0" routerLink="/Checkout">proceed to Checkout</button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</section>

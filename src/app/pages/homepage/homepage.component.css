@@ -1,0 +1,55 @@
+h1 {
+    font-weight: 600;
+    display: inline-block;
+}
+
+
+h3{
+    background-color: white;
+}
+
+.Allcategories{
+  font-weight: 500;
+  font-family:  "Protest Riot", sans-serif !important;
+}
+
+
+.cardd {
+    height: 15rem;
+    background-color: black;
+    transition: all 200ms linear;
+    padding: 0;
+   
+}
+
+.cardd:hover{
+    transform: scale(1.07);
+    background-color: rgb(238, 238, 238);
+    color: black !important;
+}
+
+.cardd:hover h3{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255) !important;
+}
+
+.scrollrow{
+overflow-x: scroll;
+}
+
+.scrollrow::-webkit-scrollbar{
+    display: none;
+}
+
+
+.divcat {
+    cursor: pointer;
+}
+
+
+
+@media (max-width:767){
+    .cardd {
+        height: 10rem;
+    }
+}

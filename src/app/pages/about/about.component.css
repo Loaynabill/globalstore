@@ -1,0 +1,39 @@
+.imgcont{
+    background-image: url("../../../assets/aboutus.webp");
+    background-size: cover;
+    height: 80vh;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.4;
+    position: absolute;
+    z-index: 1;
+}
+
+h1{
+    color: rgb(255, 255, 255);
+    font-family:  "Protest Riot", sans-serif !important;
+    font-weight: 600;
+    text-shadow: 7px 7px 5px black;
+}
+
+p{
+    color: white;
+    font-family:  "Protest Riot", sans-serif !important;
+    text-shadow: 10px 10px 5px black;
+}
+
+.a {
+    z-index: 2;
+}
+
+@media (max-width:767px) {
+    .imgcont{
+        height: 70vh;
+    }
+}
