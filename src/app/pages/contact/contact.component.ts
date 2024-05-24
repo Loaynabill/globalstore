@@ -19,6 +19,6 @@ sendmsg(data:any){
   console.log(res);
   Swal.fire('Your message has been sent successfully');
  }));
- 
+
 }
 }

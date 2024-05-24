@@ -20,14 +20,6 @@ export class CarttService {
     });
   }
 
-  
-    
-  //  addProductToCart(prd: any,quantity: number) {
-  //   this.cont+=quantity;
-  //   this.cart.push({
-  //     ...prd,
-  //   });
-  // }
 
   totalprice() {
     this.total = this.cart.reduce((total, prd) => (total += prd.totalprice), 0);
